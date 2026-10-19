@@ -1,0 +1,292 @@
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0A0F;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1E1E2E;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F0FF;
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(18, 18, 26, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(18, 18, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        /* Neon Glow Border Effect */
+        .neon-border-glow {
+            position: relative;
+        }
+
+        .neon-border-glow::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #00F0FF, #7000FF, #FF007A, #00FF85);
+            border-radius: 18px;
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.4;
+            animation: neonRotate 6s linear infinite;
+        }
+
+        @keyframes neonRotate {
+            0% {
+                filter: blur(10px) hue-rotate(0deg);
+                opacity: 0.3;
+            }
+
+            50% {
+                filter: blur(14px) hue-rotate(180deg);
+                opacity: 0.6;
+            }
+
+            100% {
+                filter: blur(10px) hue-rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Floating Tech Badges Animation */
+        .float-badge-1 {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+
+        .float-badge-2 {
+            animation: floatSlow 6s ease-in-out 1s infinite;
+        }
+
+        .float-badge-3 {
+            animation: floatSlow 5.5s ease-in-out 2s infinite;
+        }
+
+        .float-badge-4 {
+            animation: floatSlow 7s ease-in-out 0.5s infinite;
+        }
+
+        @keyframes floatSlow {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(3deg);
+            }
+        }
+
+        /* Gradient Text */
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #00F0FF 0%, #7000FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            /* Added for standard browser support */
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .text-gradient-purple {
+            background: linear-gradient(135deg, #7000FF 0%, #FF007A 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-green {
+            background: linear-gradient(135deg, #00FF85 0%, #00F0FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Fixed missing leading hyphen */
+        }
+
+        /* Terminal Cursor */
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background-color: #00F0FF;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Ambient Glow Background */
+        .glow-sphere {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.25;
+        }
+
+        /* Grid Pattern Overlay */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Typing Effect Caret */
+        .typing-caret::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            color: #00F0FF;
+        }
+
+        .developer-result-card.is-visible {
+            display: flex;
+            animation: developerResultEnter 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        .developer-result-avatar {
+            width: 5rem;
+            height: 5rem;
+            flex: 0 0 5rem;
+            overflow: hidden;
+            border: 1px solid rgba(0, 240, 255, 0.55);
+            border-radius: 1rem;
+            background: radial-gradient(circle at 50% 35%, rgba(0, 240, 255, 0.2), rgba(18, 18, 26, 0.95) 72%);
+            box-shadow: 0 0 22px rgba(0, 240, 255, 0.18);
+            animation: developerAvatarGlow 2.8s ease-in-out 700ms infinite;
+        }
+
+        .github-project-marquee {
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+        }
+
+        .github-project-track {
+            display: flex;
+            width: max-content;
+            animation: githubProjectsScroll 55s linear infinite;
+            will-change: transform;
+        }
+
+        .github-project-marquee:hover .github-project-track,
+        .github-project-marquee:focus-within .github-project-track {
+            animation-play-state: paused;
+        }
+
+        .github-project-group {
+            display: flex;
+            flex: 0 0 auto;
+            gap: 1rem;
+            padding-right: 1rem;
+        }
+
+        .github-project-card {
+            display: block;
+            width: 18rem;
+            flex: 0 0 18rem;
+            padding: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+            background: linear-gradient(145deg, rgba(18, 18, 26, 0.94), rgba(18, 18, 26, 0.68));
+            transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+        }
+
+        .github-project-card:hover,
+        .github-project-card:focus-visible {
+            border-color: rgba(0, 240, 255, 0.45);
+            box-shadow: 0 0 24px rgba(0, 240, 255, 0.1);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        @keyframes githubProjectsScroll {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes developerResultEnter {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes developerAvatarGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 16px rgba(0, 240, 255, 0.16);
+            }
+
+            50% {
+                box-shadow: 0 0 28px rgba(0, 240, 255, 0.4);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .developer-result-card.is-visible,
+            .developer-result-avatar {
+                animation: none;
+            }
+
+            .github-project-track {
+                animation: none;
+            }
+
+            .github-project-marquee {
+                overflow-x: auto;
+                -webkit-mask-image: none;
+                mask-image: none;
+            }
+
+            .github-project-group[aria-hidden="true"] {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .github-project-card {
+                width: 16rem;
+                flex-basis: 16rem;
+            }
+        }

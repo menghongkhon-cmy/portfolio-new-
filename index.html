@@ -22,220 +22,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#0A0A0F',
-                        darkCard: '#12121A',
-                        darkBorder: '#1E1E2E',
-                        accentCyan: '#00F0FF',
-                        accentPurple: '#7000FF',
-                        accentPink: '#FF007A',
-                        accentGreen: '#00FF85',
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    darkBg: '#0A0A0F',
+                    darkCard: '#12121A',
+                    darkBorder: '#1E1E2E',
+                    accentCyan: '#00F0FF',
+                    accentPurple: '#7000FF',
+                    accentPink: '#FF007A',
+                    accentGreen: '#00FF85',
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    display: ['Space Grotesk', 'sans-serif'],
+                    mono: ['JetBrains Mono', 'monospace'],
+                },
+                animation: {
+                    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    'float': 'float 6s ease-in-out infinite',
+                    'glow': 'glow 3s ease-in-out infinite alternate',
+                },
+                keyframes: {
+                    float: {
+                        '0%, 100%': { transform: 'translateY(0px)' },
+                        '50%': { transform: 'translateY(-10px)' },
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 3s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        glow: {
-                            '0%': { opacity: 0.4, filter: 'blur(20px)' },
-                            '100%': { opacity: 0.8, filter: 'blur(30px)' },
-                        }
+                    glow: {
+                        '0%': { opacity: 0.4, filter: 'blur(20px)' },
+                        '100%': { opacity: 0.8, filter: 'blur(30px)' },
                     }
                 }
             }
         }
-    </script>
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0A0A0F;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #1E1E2E;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00F0FF;
-        }
-
-        /* Glassmorphism */
-        .glass-panel {
-            background: rgba(18, 18, 26, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .glass-card {
-            background: rgba(18, 18, 26, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(0, 240, 255, 0.4);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
-            transform: translateY(-4px);
-        }
-
-        /* Neon Glow Border Effect */
-        .neon-border-glow {
-            position: relative;
-        }
-
-        .neon-border-glow::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(45deg, #00F0FF, #7000FF, #FF007A, #00FF85);
-            border-radius: 18px;
-            z-index: -1;
-            filter: blur(10px);
-            opacity: 0.4;
-            animation: neonRotate 6s linear infinite;
-        }
-
-        @keyframes neonRotate {
-            0% {
-                filter: blur(10px) hue-rotate(0deg);
-                opacity: 0.3;
-            }
-
-            50% {
-                filter: blur(14px) hue-rotate(180deg);
-                opacity: 0.6;
-            }
-
-            100% {
-                filter: blur(10px) hue-rotate(360deg);
-                opacity: 0.3;
-            }
-        }
-
-        /* Floating Tech Badges Animation */
-        .float-badge-1 {
-            animation: floatSlow 5s ease-in-out infinite;
-        }
-
-        .float-badge-2 {
-            animation: floatSlow 6s ease-in-out 1s infinite;
-        }
-
-        .float-badge-3 {
-            animation: floatSlow 5.5s ease-in-out 2s infinite;
-        }
-
-        .float-badge-4 {
-            animation: floatSlow 7s ease-in-out 0.5s infinite;
-        }
-
-        @keyframes floatSlow {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-12px) rotate(3deg);
-            }
-        }
-
-        /* Gradient Text */
-        .text-gradient-cyan {
-            background: linear-gradient(135deg, #00F0FF 0%, #7000FF 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            /* Added for standard browser support */
-            -webkit-text-fill-color: transparent;
-        }
-
-
-        .text-gradient-purple {
-            background: linear-gradient(135deg, #7000FF 0%, #FF007A 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-green {
-            background: linear-gradient(135deg, #00FF85 0%, #00F0FF 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* Fixed missing leading hyphen */
-        }
-
-        /* Terminal Cursor */
-        .terminal-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 18px;
-            background-color: #00F0FF;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-            margin-left: 2px;
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* Ambient Glow Background */
-        .glow-sphere {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.25;
-        }
-
-        /* Grid Pattern Overlay */
-        .bg-grid-pattern {
-            background-size: 40px 40px;
-            background-image:
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
-
-        /* Typing Effect Caret */
-        .typing-caret::after {
-            content: '|';
-            animation: blink 0.8s infinite;
-            color: #00F0FF;
-        }
-    </style>
+    }
+</script>
 </head>
 
 <body
@@ -293,7 +118,9 @@
             <!-- Logo -->
             <a href="#home" class="group flex items-center gap-2 font-mono text-xl font-bold tracking-wider">
                 <span class="text-accentCyan group-hover:text-accentPink transition-colors">&lt;</span>
-                <span class="text-white group-hover:text-accentCyan transition-colors">MK</span>
+                <div class="flex items-center space-x-2 text-[#00E5FF] font-mono text-2xl font-bold">
+                    <img src="letter-h.png" alt="H" class="h-8 w-auto inline-block object-contain" />
+                </div>
                 <span class="text-accentCyan group-hover:text-accentPink transition-colors">/&gt;</span>
             </a>
 
@@ -541,12 +368,30 @@
                                 </div>
 
                                 <!-- Dynamic Code Execution Console Panel -->
-                                <div id="code-console-output"
+                                <div id="code-console-output" aria-live="polite"
                                     class="mt-4 p-3 rounded-lg bg-black/60 border border-darkBorder text-[11px] space-y-1 font-mono text-gray-400 min-h-[65px]">
                                     <div class="text-gray-500 text-[10px] uppercase tracking-wider font-semibold">//
                                         Console Output</div>
                                     <div id="console-output-text" class="text-accentGreen">System initialized. Click
                                         "Run Code" above to execute.</div>
+                                    <div id="developer-result-card"
+                                        class="developer-result-card hidden mt-3 p-3 rounded-xl border border-accentCyan/20 bg-gradient-to-r from-accentCyan/10 via-darkCard to-accentPurple/10 items-center gap-4">
+                                        <div class="developer-result-avatar">
+                                            <img src="menghongkhon.png" alt="Portrait of Menghong KHON"
+                                                class="h-full w-full object-contain object-bottom">
+                                        </div>
+                                        <div class="min-w-0">
+                                            <div class="text-[9px] uppercase tracking-[0.2em] text-accentCyan">Profile
+                                                loaded</div>
+                                            <div class="mt-1 text-base font-bold text-white">Menghong KHON</div>
+                                            <div class="mt-1 text-[10px] text-gray-400">Developer • Phnom Penh,
+                                                Cambodia</div>
+                                            <div class="mt-2 flex items-center gap-1.5 text-[9px] text-accentGreen">
+                                                <i class="fa-solid fa-circle-check"></i>
+                                                <span>Ready to build and keep learning</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div
@@ -626,11 +471,15 @@
                             <div
                                 class="absolute -inset-3 bg-gradient-to-r from-accentCyan/60 via-accentPurple/50 to-accentPink/40 rounded-[32px] blur-2xl opacity-40 group-hover:opacity-80 transition duration-500">
                             </div>
-                            <div class="relative overflow-hidden rounded-[32px] border border-accentCyan/50 bg-darkCard/70 p-3 shadow-[0_0_30px_rgba(34,211,238,0.15)]">
-                                <div class="relative aspect-square overflow-hidden rounded-[28px] ring-2 ring-accentCyan/80 ring-offset-2 ring-offset-darkCard animate-pulse">
+                            <div
+                                class="relative overflow-hidden rounded-[32px] border border-accentCyan/50 bg-darkCard/70 p-3 shadow-[0_0_30px_rgba(34,211,238,0.15)]">
+                                <div
+                                    class="relative aspect-square overflow-hidden rounded-[28px] ring-2 ring-accentCyan/80 ring-offset-2 ring-offset-darkCard animate-pulse">
                                     <img src="menghongkhon.png" alt="Menghong KHON portrait"
                                         class="w-full h-full object-cover object-center bg-darkCard transition-transform duration-500 group-hover:scale-105">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-accentCyan/10 via-transparent to-accentPurple/20"></div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-accentCyan/10 via-transparent to-accentPurple/20">
+                                    </div>
                                     <div
                                         class="absolute bottom-4 right-4 w-4 h-4 bg-accentGreen rounded-full border-2 border-darkCard shadow-[0_0_12px_rgba(34,197,94,0.8)]">
                                     </div>
@@ -909,6 +758,25 @@
 
                 </div>
 
+                <div class="space-y-5 pt-8">
+                    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl sm:text-2xl font-display font-bold text-white">More from GitHub</h3>
+                            <p class="text-xs sm:text-sm text-gray-400">A live row of projects from my public repositories.</p>
+                        </div>
+                        <a href="https://github.com/menghongkhon-cmy?tab=repositories" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-xs font-mono text-accentCyan hover:text-white transition-colors">
+                            Browse all repositories <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <p id="github-projects-status" class="text-xs font-mono text-gray-500" aria-live="polite">Loading
+                        public repositories...</p>
+                    <div class="github-project-marquee" aria-label="Scrolling public GitHub projects">
+                        <div id="github-project-track" class="github-project-track"></div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1082,7 +950,8 @@
                                 <span
                                     class="px-2.5 py-1 rounded bg-accentCyan/10 border border-accentCyan/30 text-[11px] font-mono text-accentCyan">Higher
                                     Education</span>
-                                <h4 class="text-xl font-bold text-white font-display mt-3">Independent Software Learning</h4>
+                                <h4 class="text-xl font-bold text-white font-display mt-3">Independent Software Learning
+                                </h4>
                                 <p class="text-xs text-gray-400 mt-1">Self-driven web development journey</p>
                             </div>
                             <div
@@ -1173,7 +1042,8 @@
                                         class="px-2 py-0.5 rounded-full bg-accentGreen/20 text-accentGreen border border-accentGreen/30 text-[10px] font-mono">1,280+
                                         Commits in 2026</span>
                                 </div>
-                                <span class="text-xs text-gray-400 font-mono">@menghong-khon • Independent Learning</span>
+                                <span class="text-xs text-gray-400 font-mono">@menghong-khon • Independent
+                                    Learning</span>
                             </div>
                         </div>
 
@@ -1892,12 +1762,20 @@
 
             if (runCodeBtn && consoleOutputText) {
                 runCodeBtn.addEventListener('click', () => {
+                    const developerResultCard = document.getElementById('developer-result-card');
+                    runCodeBtn.disabled = true;
                     consoleOutputText.innerHTML = `<span class="text-yellow-400"><i class="fa-solid fa-spinner animate-spin"></i> Compiling developer.js...</span>`;
                     setTimeout(() => {
                         consoleOutputText.innerHTML = `
                             <div class="text-accentGreen">✓ Executed successfully!</div>
-                            <div class="text-gray-300">> Output: Developer Menghong KHON ready for 2026 web projects.</div>
+                            <div class="text-gray-300">> Output: Loaded Menghong KHON's developer profile.</div>
                         `;
+                        if (developerResultCard) {
+                            developerResultCard.classList.remove('hidden', 'is-visible');
+                            void developerResultCard.offsetWidth;
+                            developerResultCard.classList.add('is-visible');
+                        }
+                        runCodeBtn.disabled = false;
                     }, 1000);
                 });
             }
@@ -1944,6 +1822,81 @@
             }
 
             typeRole();
+
+            const githubProjectTrack = document.getElementById('github-project-track');
+            const githubProjectsStatus = document.getElementById('github-projects-status');
+
+            if (githubProjectTrack && githubProjectsStatus) {
+                fetch('https://api.github.com/users/menghongkhon-cmy/repos?sort=updated&per_page=100')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`GitHub returned ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(repositories => {
+                        const projects = repositories
+                            .filter(repo => !repo.fork && repo.name.toLowerCase() !== 'portfolio-new-')
+                            .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+                        if (projects.length === 0) {
+                            githubProjectsStatus.textContent = 'No public repositories are available to show yet.';
+                            return;
+                        }
+
+                        const projectGroup = document.createElement('div');
+                        projectGroup.className = 'github-project-group';
+
+                        projects.forEach(repo => {
+                            const card = document.createElement('a');
+                            card.className = 'github-project-card';
+                            card.href = repo.html_url;
+                            card.target = '_blank';
+                            card.rel = 'noopener noreferrer';
+
+                            const header = document.createElement('div');
+                            header.className = 'flex items-start justify-between gap-3';
+                            const name = document.createElement('h4');
+                            name.className = 'text-sm font-bold text-white break-words';
+                            name.textContent = repo.name.replace(/[-_]/g, ' ');
+                            const githubIcon = document.createElement('i');
+                            githubIcon.className = 'fa-brands fa-github text-gray-400';
+                            header.append(name, githubIcon);
+
+                            const description = document.createElement('p');
+                            description.className = 'mt-2 text-xs leading-relaxed text-gray-400';
+                            description.textContent = repo.description || 'Explore this project and its source code on GitHub.';
+
+                            const details = document.createElement('div');
+                            details.className = 'mt-4 flex flex-wrap items-center gap-3 text-[10px] font-mono text-gray-500';
+                            if (repo.language) {
+                                const language = document.createElement('span');
+                                language.className = 'text-accentCyan';
+                                language.textContent = repo.language;
+                                details.appendChild(language);
+                            }
+                            const stars = document.createElement('span');
+                            stars.className = 'inline-flex items-center gap-1';
+                            const starIcon = document.createElement('i');
+                            starIcon.className = 'fa-solid fa-star text-amber-300';
+                            stars.append(starIcon, document.createTextNode(` ${repo.stargazers_count}`));
+                            details.appendChild(stars);
+
+                            card.append(header, description, details);
+                            projectGroup.appendChild(card);
+                        });
+
+                        const duplicateGroup = projectGroup.cloneNode(true);
+                        duplicateGroup.setAttribute('aria-hidden', 'true');
+                        duplicateGroup.inert = true;
+                        githubProjectTrack.append(projectGroup, duplicateGroup);
+                        githubProjectsStatus.textContent = `${projects.length} public repositories · hover or focus to pause`;
+                    })
+                    .catch(error => {
+                        console.error('Unable to load GitHub repositories:', error);
+                        githubProjectsStatus.textContent = 'Could not load repositories right now. Visit my GitHub profile to see all projects.';
+                    });
+            }
 
 
             // --- 3. IDE / TERMINAL TAB SWITCHING ---
@@ -2027,13 +1980,8 @@
                 { name: 'JavaScript', cat: 'frontend', icon: 'fa-brands fa-js', color: 'text-yellow-400' },
                 { name: 'Bootstrap', cat: 'frontend', icon: 'fa-brands fa-bootstrap', color: 'text-purple-500' },
                 { name: 'Tailwind CSS', cat: 'frontend', icon: 'fa-solid fa-wind', color: 'text-accentCyan' },
-                { name: 'React', cat: 'frontend', icon: 'fa-brands fa-react', color: 'text-accentCyan' },
                 { name: 'Python', cat: 'backend', icon: 'fa-brands fa-python', color: 'text-emerald-400' },
-                { name: 'Node.js', cat: 'backend', icon: 'fa-brands fa-node-js', color: 'text-green-500' },
-                { name: 'REST API', cat: 'backend', icon: 'fa-solid fa-network-wired', color: 'text-accentPink' },
                 { name: 'MySQL', cat: 'database', icon: 'fa-solid fa-database', color: 'text-blue-400' },
-                { name: 'PostgreSQL', cat: 'database', icon: 'fa-solid fa-server', color: 'text-indigo-400' },
-                { name: 'MongoDB', cat: 'database', icon: 'fa-solid fa-leaf', color: 'text-accentGreen' },
                 { name: 'Git', cat: 'tools', icon: 'fa-brands fa-git-alt', color: 'text-orange-600' },
                 { name: 'GitHub', cat: 'tools', icon: 'fa-brands fa-github', color: 'text-white' },
                 { name: 'VS Code', cat: 'tools', icon: 'fa-solid fa-code', color: 'text-blue-500' },
